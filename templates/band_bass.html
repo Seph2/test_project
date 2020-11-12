@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TEST_DRUM</title>
+    <meta name="description"
+          content="An open collection of menu styles that use the line as a creative design element"/>
+    <meta name="keywords" content="web design, styles, inspiration, line, pseudo-element, SVG, animation"/>
+    <meta name="author" content="Codrops"/>
+    <link rel="shortcut icon" href="favicon.ico">
+    <!--    외부 CSS-->
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/demo.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/component.css"/>
+    <!--    외부 CSS_1-->
+    <link rel="stylesheet" href="../css_1/main.css"/>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Muli:300,400,700');
+    /*배경 스타일*/
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #000;
+        height: 200vh;
+        font-family: 'Muli', sans-serif;
+    }
+
+    .btn-dark {
+        background-color: #2a282b;
+        margin-left: 980px;
+    }
+</style>
+
+<body>
+<!--메뉴창-->
+<section class="section section--menu" id="Sebastian">
+    <h2 class="section__title">MY BAND PRACTICE SITE</h2>
+    <span class="link-copy"></span>
+    <nav class="menu menu--sebastian">
+        <ul class="menu__list">
+            <li class="menu__item"><a href="/" class="menu__link">Home</a></li>
+            <li class="menu__item"><a href="/drum" class="menu__link">Drum</a></li>
+            <li class="menu__item"><a href="/piano" class="menu__link">Piano</a></li>
+            <li class="menu__item"><a href="/guitar" class="menu__link">Guitar</a></li>
+            <li class="menu__item menu__item--current"><a href="/bass" class="menu__link">Bass</a></li>
+            <li class="menu__item"><a href="/vocal" class="menu__link">Vocal</a></li>
+            <li class="menu__item"><a href="/band" class="menu__link">Band</a></li>
+        </ul>
+    </nav>
+</section>
+<!--업로드 된 영상 창-->
+
+<button type="button" class="btn btn-dark" onclick = "location.href='video_regist_bass.html'">Upload</button>
+<a href="/register_bass">Upload</a>
+
+<!--// 메뉴 JS-->
+<script src="../js/classie.js"></script>
+<script src="../js/clipboard.min.js"></script>
+
+<script>
+    (function () {
+        [].slice.call(document.querySelectorAll('.menu')).forEach(function (menu) {
+            var menuItems = menu.querySelectorAll('.menu__link'),
+                setCurrent = function (ev) {
+                    ev.preventDefault();
+
+                    var item = ev.target.parentNode; // li
+
+                    // return if already current
+                    if (classie.has(item, 'menu__item--current')) {
+                        return false;
+                    }
+                    // remove current
+                    classie.remove(menu.querySelector('.menu__item--current'), 'menu__item--current');
+                    // set current
+                    classie.add(item, 'menu__item--current');
+                };
+
+            [].slice.call(menuItems).forEach(function (el) {
+                el.addEventListener('click', setCurrent);
+            });
+        });
+
+        [].slice.call(document.querySelectorAll('.link-copy')).forEach(function (link) {
+            link.setAttribute('data-clipboard-text', location.protocol + '//' + location.host + location.pathname + '#' + link.parentNode.id);
+            new Clipboard(link);
+            link.addEventListener('click', function () {
+                classie.add(link, 'link-copy--animate');
+                setTimeout(function () {
+                    classie.remove(link, 'link-copy--animate');
+                }, 300);
+            });
+        });
+    })(window)
+
+
+</script>
+</body>
+
+</html>

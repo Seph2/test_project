@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>나만의 밴드 사이트</title>
+    <title>MBSP</title>
 
     <!--    bootstrap CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -28,11 +28,13 @@
         /*메인 홈페이지-start*/
         .container {
             display: flex;
-            width: 105%;
+            width: 200%;
             padding: 4% 2%;
             box-sizing: border-box;
             height: 105vh;
+            margin-left: 125px;
         }
+
         .box {
             flex: 1;
             /*overflow: hidden;*/
@@ -45,7 +47,7 @@
         }
 
         .box > img {
-            width: 200%;
+            width: 150%;
             height: calc(100% - 10vh);
             object-fit: cover;
             transition: .5s;
@@ -60,13 +62,14 @@
         }
 
         .box:hover {
-            flex: 1 1 50%;
+            flex: 2 2 80%;
         }
 
         .box:hover > img {
             width: 100%;
             height: 100%;
         }
+
         /*위쪽 표지*/
         * {
             margin: 0;
@@ -99,7 +102,7 @@
             font-size: 2em;
             color: #fff;
             opacity: 1;
-            transition: all 0.5s ease-in-out;
+            transition: all 0.3s ease-in-out;
             max-width: 2em;
         }
 
@@ -108,7 +111,7 @@
         }
 
         .text li.spaced {
-            padding-left: 0.5em;
+            padding-left: 0;
         }
 
         .text.hidden li.ghost {
@@ -119,7 +122,7 @@
 
     <script>
 
-        // 표지 스크립트
+        //위쪽 표지 스크립트
         $(function () {
             var text = $(".text");
             $(window).scroll(function () {
@@ -142,12 +145,12 @@
 <ul class="text hidden">
     <li>M</li>
     <li class="ghost">Y</li>
-    <br>
+    <br><br>
     <li>B</li>
     <li class="ghost">A</li>
     <li class="ghost">N</li>
     <li class="ghost">D</li>
-    <br>
+    <br><br>
     <li>P</li>
     <li class="ghost">R</li>
     <li class="ghost">A</li>
@@ -165,14 +168,19 @@
 <!--메뉴 소개-->
 <div class="container">
     <div class="box">
-<!--        <a href="https://www.naver.com" target=_self>-->
+        <!--        <a href="https://www.naver.com" target=_self>-->
+        <a href="/drum">
             <img src="https://ofmvc40dolyrl7u9xigg5kyy-wpengine.netdna-ssl.com/wp-content/uploads/2019/08/drums-2599508_1280-1024x682.jpg">
-<!--        </a>-->
+        </a>
+        <!--        </a>-->
         <span>Drum</span>
     </div>
     <div class="box">
-        <img src="https://data.whicdn.com/images/348234775/original.jpg">
+        <a href="/piano">
+            <img src="https://data.whicdn.com/images/348234775/original.jpg">
+        </a>
         <span>Piano</span>
+
     </div>
     <div class="box">
         <img src="https://i.pinimg.com/originals/6d/d4/ff/6dd4ff2407e92a2ebc863dd9d67b6cde.jpg">
@@ -185,6 +193,10 @@
     <div class="box">
         <img src="https://i.pinimg.com/originals/7d/1c/fb/7d1cfbd7ef04361703df6fc3d14c0211.jpg">
         <span>Vocal</span>
+    </div>
+    <div class="box">
+        <img src="https://data.whicdn.com/images/298869229/original.jpg">
+        <span>Band</span>
     </div>
 </div>
 </body>
